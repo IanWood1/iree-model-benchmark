@@ -31,6 +31,7 @@ COMPILER_FLAGS=(
     "--iree-hip-target=$CHIP" \
     "--iree-hal-target-backends=rocm" \
     "--iree-opt-level=O3" \
+    "--iree-dispatch-creation-fuse-multi-use=false" \
     "--iree-dispatch-creation-propagate-collapse-across-expands=true" \
     "--iree-codegen-enable-default-tuning-specs=true" \
     "--iree-hal-indirect-command-buffers=true" \

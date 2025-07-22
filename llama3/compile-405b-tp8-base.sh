@@ -38,6 +38,7 @@ COMPILER_FLAGS=(
     "--iree-hal-target-device=\"hip[6]\"" \
     "--iree-hal-target-device=\"hip[7]\"" \
     "--iree-opt-level=O3" \
+    "--iree-dispatch-creation-fuse-multi-use=false" \
     "--iree-dispatch-creation-propagate-collapse-across-expands=true" \
     "--iree-codegen-enable-default-tuning-specs=true" \
     "--iree-hal-indirect-command-buffers=true" \
