@@ -36,21 +36,13 @@ set -x
     --iree-hal-target-backends=rocm \
     --iree-hip-target=$CHIP \
     --iree-execution-model=async-external \
-    --iree-global-opt-propagate-transposes=1 \
-    --iree-opt-const-eval=0 \
-    --iree-opt-outer-dim-concat=1 \
-    --iree-opt-aggressively-propagate-transposes=1 \
-    --iree-dispatch-creation-enable-aggressive-fusion \
+    --iree-opt-level=O3 \
     --iree-hal-force-indirect-command-buffers \
     --iree-llvmgpu-enable-prefetch=1 \
-    --iree-opt-data-tiling=0 \
     --iree-hal-memoization=1 \
-    --iree-opt-strip-assertions \
     --iree-codegen-llvmgpu-early-tile-and-fuse-matmul=1 \
     --iree-stream-resource-memory-model=discrete \
     --iree-vm-target-truncate-unsupported-floats \
     --iree-config-add-tuner-attributes \
-    --iree-codegen-transform-dialect-library="$ATTENTION_SPEC" \
-    --iree-dispatch-creation-enable-fuse-horizontal-contractions=0 \
     --iree-preprocessing-pass-pipeline='builtin.module(util.func(iree-global-opt-raise-special-ops, iree-flow-canonicalize), iree-preprocessing-transpose-convolution-pipeline, iree-preprocessing-pad-to-intrinsics, util.func(iree-preprocessing-generalize-linalg-matmul-experimental),iree-preprocessing-convert-conv-filter-to-channels-last{filter-layout=fhwc})' \
     "$@"
